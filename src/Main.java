@@ -10,6 +10,7 @@ public class Main {
         int angkaAcak;
         int jumlahPercobaan = 0;
         int maxTebakan = 0;
+        int pilihanLevel = 0;
 
         angkaAcak = random.nextInt(1, 100);
 
@@ -19,7 +20,14 @@ public class Main {
         System.out.println("2 MEDIUM (5 percobaan)");
         System.out.println("3 Hard (3 percobaan)");
         System.out.println("pilihan mu (1/2/3): ");
-        int pilihanLevel = input.nextInt();
+
+        if (input.hasNextInt()) {
+            pilihanLevel = input.nextInt();
+        } else {
+            System.out.println("Pilihan tidak valid. Kamu dialihkan ke level Medium!");
+            pilihanLevel = 2;
+            input.next();
+        }
 
         if (pilihanLevel == 1) {
             maxTebakan = 10;
@@ -58,7 +66,7 @@ public class Main {
 
         if (lanjut == true) {
             System.out.println("Anda sudah memenuhi batas menebak!");
-            System.out.println("Angka rahasinya nya adalah " + angkaAcak);
+            System.out.println("Angka rahasianya nya adalah " + angkaAcak);
             System.out.println("Terimakasih sudah bermain.");
         }
 

@@ -9,14 +9,14 @@ public class Main {
 
         int angkaAcak;
         int jumlahPercobaan = 0;
-        int maxPercobaan = 10;
+        int maxTebakan = 3;
 
         angkaAcak = random.nextInt(1, 100);
 
         System.out.println("Selamat datang di game tebak angka!");
         System.out.println("Saya telah memiliki angka dari 1 sampai 100, silahkan tebak!");
 
-        while (lanjut) {
+        while (jumlahPercobaan < maxTebakan && lanjut == true) {
             System.out.println("Masukkan tebakan anda: ");
             int tebakan = input.nextInt();
             jumlahPercobaan++;
@@ -29,12 +29,18 @@ public class Main {
                 System.out.println("Selamat! anda berhasil menebak dalam " + jumlahPercobaan + " Percobaan.");
                 lanjut = false;
             }
+
+            System.out.println("Sisa percobaan: " + (maxTebakan - jumlahPercobaan));
+
         }
 
-        if (lanjut == false) {
-            System.out.println("Batas percobaan telah terpenuhi.");
+        if (lanjut == true) {
+            System.out.println("Anda sudah memenuhi batas menebak!");
+            System.out.println("Angka rahasinya nya adalah " + angkaAcak);
+            System.out.println("Terimakasih sudah bermain.");
         }
 
         input.close();
+
     }
 }
